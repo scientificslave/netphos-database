@@ -1,0 +1,16 @@
+{
+  "phosphorylation_sites": [
+    {
+      "protein": "P12345",
+      "position": 15,
+      "residue": "S",
+      "score": 0.85
+    },
+    {
+      "protein": "P67890",
+      "position": 42,
+      "residue": "T",
+      "score": 0.92
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetPhos Database API</title>
+</head>
+<body>
+  <h1>Welcome to the NetPhos Database API</h1>
+  <p>Access the phosphorylation sites data at the following endpoint:</p>
+  <a href="/api/phosphorylation-sites">/api/phosphorylation-sites</a>
+  <h2>Search</h2>
+  <form id="search-form">
+    <label for="protein">Protein:</label>
+    <input type="text" id="protein" name="protein">
+    <button type="submit">Search</button>
+  </form>
+  <div id="results"></div>
+  <script>
+    document.getElementById('search-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const protein = document.getElementById('protein').value;
+      fetch(`/api/phosphorylation-sites?protein=${protein}`)
+        .then(response => response.json())
+        .then(data => {
+          const resultsDiv = document.getElementById('results');
+          resultsDiv.innerHTML = JSON.stringify(data, null, 2);
+        });
+    });
+  </script>
+</body>
+</html>
